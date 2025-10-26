@@ -18,8 +18,42 @@ Sistema de Gestão de Clínicas de Especialidades desenvolvido com Java 21, Spri
 
 - Java 21+
 - Maven 3.8+
-- PostgreSQL 16+
-- Docker (opcional, para rodar o banco via container)
+- PostgreSQL 16+ (ou Docker para rodar via container)
+- Docker & Docker Compose (recomendado)
+- DBeaver ou outro cliente SQL (para gerenciar o banco)
+
+## 🐳 Docker (Recomendado)
+
+### Iniciar ambiente de desenvolvimento
+
+O projeto inclui um `docker-compose.yml` configurado com PostgreSQL para facilitar o desenvolvimento.
+
+```bash
+# Iniciar o container em background
+docker-compose up -d
+
+# Verificar status do container
+docker-compose ps
+
+# Ver logs do PostgreSQL
+docker-compose logs -f postgres
+
+# Parar o container
+docker-compose down
+
+# Parar e remover volumes (limpar dados do banco)
+docker-compose down -v
+```
+
+### Conectar ao PostgreSQL via DBeaver
+
+Após iniciar o Docker Compose, configure a conexão no DBeaver:
+
+- **Host**: `localhost`
+- **Port**: `5432`
+- **Database**: `clinic_db`
+- **Username**: `postgres`
+- **Password**: `postgres`
 
 ## ⚙️ Configuração
 
@@ -33,13 +67,23 @@ cp .env.example .env
 
 ### 2. Banco de Dados
 
-Crie o banco de dados PostgreSQL:
+**Opção A: Usando Docker (Recomendado)**
+
+```bash
+docker-compose up -d
+```
+
+O banco será criado automaticamente com o nome `clinic_db`.
+
+**Opção B: PostgreSQL Local**
+
+Crie o banco de dados manualmente:
 
 ```sql
 CREATE DATABASE clinic_db;
 ```
 
-As migrations do Flyway serão executadas automaticamente na inicialização.
+As migrations do Flyway serão executadas automaticamente na inicialização da aplicação.
 
 ### 3. Executar a Aplicação
 
