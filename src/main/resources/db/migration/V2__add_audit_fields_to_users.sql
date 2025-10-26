@@ -16,15 +16,9 @@ ALTER TABLE users ALTER COLUMN created_by SET NOT NULL;
 
 -- updated_by pode ser NULL (será preenchido na primeira atualização)
 
--- IMPORTANTE: Remover constraint ANTES de atualizar os valores
+-- Garantir que o constraint de roles está correto (mantendo padrão em português)
 ALTER TABLE users DROP CONSTRAINT IF EXISTS users_role_check;
-
--- Corrigir valores de role para o novo padrão
-UPDATE users SET role = 'PROFESSIONAL' WHERE role = 'PROFISSIONAL';
-UPDATE users SET role = 'RECEPTION' WHERE role = 'RECEPCAO';
-
--- Adicionar novo constraint com valores corretos
-ALTER TABLE users ADD CONSTRAINT users_role_check CHECK (role IN ('ADMIN', 'RECEPTION', 'PROFESSIONAL'));
+ALTER TABLE users ADD CONSTRAINT users_role_check CHECK (role IN ('ADMIN', 'RECEPCAO', 'PROFISSIONAL'));
 
 -- Comentários nas colunas para documentação
 COMMENT ON COLUMN users.created_by IS 'Username de quem criou o registro';
