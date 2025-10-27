@@ -44,6 +44,7 @@ public class Usuario extends Auditavel {
 
     @NotNull
     @Column(nullable = false)
+    @Builder.Default
     private boolean active = true;
 
 }
