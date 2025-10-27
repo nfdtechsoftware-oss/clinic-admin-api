@@ -21,20 +21,20 @@ public class Usuario extends Auditavel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message = "Username é obrigatório")
+    @Size(min = 3, max = 50, message = "Username deve ter entre 3 e 50 caracteres")
     @Column(nullable = false, unique = true, length = 50)
     private String username;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Email é obrigatório")
+    @Email(message = "Email deve ser válido")
     @Size(max = 100)
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
     @NotBlank
     @Size(max = 255)
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String password;
 
     @NotNull

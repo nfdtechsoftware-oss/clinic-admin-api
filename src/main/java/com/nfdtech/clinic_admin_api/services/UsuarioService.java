@@ -1,6 +1,7 @@
 package com.nfdtech.clinic_admin_api.services;
 
 import com.nfdtech.clinic_admin_api.domain.user.Usuario;
+import com.nfdtech.clinic_admin_api.exception.custom.ResourceNotFoundException;
 import com.nfdtech.clinic_admin_api.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,13 +29,15 @@ public class UsuarioService {
     @Transactional(readOnly = true)
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario", "id", id));
     }
 
     @Transactional
     public void desativar(Long id) {
-        Usuario usuario = buscarPorId(id);
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario", "id", id));
         usuario.setActive(false);
         usuarioRepository.save(usuario);
     }
+
 }
