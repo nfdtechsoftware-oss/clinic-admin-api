@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn clean compile:*)",
+      "Bash(.mvnw.cmd clean compile:*)",
+      "Bash(./mvnw clean:*)",
+      "Bash(./mvnw test:*)",
+      "Bash(./mvnw dependency:tree:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

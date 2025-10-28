@@ -19,18 +19,18 @@ class UsuarioRepositoryTest {
     @Test
     void deveSalvarEBuscarUsuarioPorUsername() {
         Usuario usuario = Usuario.builder()
-                .username("admin")
-                .email("admin@clinic.com")
+                .username("testuser")
+                .email("testuser@clinic.com")
                 .password("123456")
                 .role(Role.ADMIN)
                 .active(true)
                 .build();
 
         usuarioRepository.save(usuario);
-        Optional<Usuario> encontrado = usuarioRepository.findByUsername("admin");
+        Optional<Usuario> encontrado = usuarioRepository.findByUsername("testuser");
 
         assertThat(encontrado).isPresent();
-        assertThat(encontrado.get().getUsername()).isEqualTo("admin");
+        assertThat(encontrado.get().getUsername()).isEqualTo("testuser");
     }
 
 }

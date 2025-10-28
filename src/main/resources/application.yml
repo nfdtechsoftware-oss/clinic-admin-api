@@ -37,6 +37,11 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     enabled: true
+  show-actuator: false
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  packages-to-scan: com.nfdtech.clinic_admin_api.controllers
+  model-and-view-allowed: false
 
 # Actuator Configuration
 management:
@@ -45,3 +50,9 @@ management:
       exposure:
         include: health,info
       base-path: /actuator
+
+# Logging
+logging:
+  level:
+    org.springdoc: DEBUG
+    org.springframework.web: DEBUG
