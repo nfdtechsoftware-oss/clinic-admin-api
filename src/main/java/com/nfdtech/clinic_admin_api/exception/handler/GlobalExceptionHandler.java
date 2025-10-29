@@ -2,6 +2,7 @@ package com.nfdtech.clinic_admin_api.exception.handler;
 
 import com.nfdtech.clinic_admin_api.exception.custom.BusinessException;
 import com.nfdtech.clinic_admin_api.exception.custom.ResourceNotFoundException;
+import com.nfdtech.clinic_admin_api.exception.custom.UnauthorizedException;
 import com.nfdtech.clinic_admin_api.exception.custom.ValidationException;
 import com.nfdtech.clinic_admin_api.exception.dto.ErrorResponse;
 import com.nfdtech.clinic_admin_api.exception.dto.ValidationError;
@@ -65,6 +66,22 @@ public class GlobalExceptionHandler {
                 .build();
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedException(
+            UnauthorizedException ex,
+            HttpServletRequest request) {
+
+        ErrorResponse error = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .error("Unauthorized")
+                .message(ex.getMessage())
+                .path(request.getRequestURI())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

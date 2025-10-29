@@ -45,5 +45,5 @@ logs/
 .DS_Store
 Thumbs.db
 
-### Internal Documentation ###
-docs/internal/
+### Documentation (Helper Files) ###
+docs/
