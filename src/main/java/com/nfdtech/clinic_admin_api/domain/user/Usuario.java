@@ -26,27 +26,27 @@ public class Usuario extends Auditavel {
 
     @NotBlank(message = "Username é obrigatório")
     @Size(min = 3, max = 50, message = "Username deve ter entre 3 e 50 caracteres")
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(name = "username", nullable = false, unique = true, length = 50)
     private String username;
 
     @NotBlank(message = "Email é obrigatório")
     @Email(message = "Email deve ser válido")
     @Size(max = 100)
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
     @NotBlank
     @Size(max = 255)
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column(name = "role", nullable = false, length = 20)
     private Role role;
 
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "active", nullable = false)
     @Builder.Default
     private boolean active = true;
 

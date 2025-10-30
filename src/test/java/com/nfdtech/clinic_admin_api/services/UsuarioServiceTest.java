@@ -2,9 +2,9 @@ package com.nfdtech.clinic_admin_api.services;
 
 import com.nfdtech.clinic_admin_api.domain.user.Role;
 import com.nfdtech.clinic_admin_api.domain.user.Usuario;
-import com.nfdtech.clinic_admin_api.dto.UsuarioRequestDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioResponseDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioUpdateDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioRequestDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioResponseDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioUpdateDTO;
 import com.nfdtech.clinic_admin_api.mapper.UsuarioMapper;
 import com.nfdtech.clinic_admin_api.repositories.UsuarioRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class UsuarioServiceTest {

@@ -1,4 +1,4 @@
-package com.nfdtech.clinic_admin_api.dto;
+package com.nfdtech.clinic_admin_api.dto.user;
 
 import com.nfdtech.clinic_admin_api.domain.user.Role;
 import io.swagger.v3.oas.annotations.media.Schema;

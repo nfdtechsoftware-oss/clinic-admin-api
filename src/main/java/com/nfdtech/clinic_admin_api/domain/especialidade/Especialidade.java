@@ -1,5 +1,6 @@
 package com.nfdtech.clinic_admin_api.domain.especialidade;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nfdtech.clinic_admin_api.domain.base.Auditavel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode(of = "id", callSuper = false)
 public class Especialidade extends Auditavel {
 

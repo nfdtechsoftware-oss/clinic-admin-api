@@ -1,8 +1,8 @@
 package com.nfdtech.clinic_admin_api.controllers;
 
-import com.nfdtech.clinic_admin_api.dto.UsuarioRequestDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioResponseDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioUpdateDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioRequestDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioResponseDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioUpdateDTO;
 import com.nfdtech.clinic_admin_api.services.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -1,9 +1,9 @@
 package com.nfdtech.clinic_admin_api.mapper;
 
 import com.nfdtech.clinic_admin_api.domain.user.Usuario;
-import com.nfdtech.clinic_admin_api.dto.UsuarioRequestDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioResponseDTO;
-import com.nfdtech.clinic_admin_api.dto.UsuarioUpdateDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioRequestDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioResponseDTO;
+import com.nfdtech.clinic_admin_api.dto.user.UsuarioUpdateDTO;
 import org.mapstruct.*;
 
 import java.util.List;
